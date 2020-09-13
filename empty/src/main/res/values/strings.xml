@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Empty</string>
+
+    <string name="error">Error</string>
+
+    <string name="refresh">Refresh</string>
+    <string name="retry">Retry</string>
+
+    <string name="error_message_common">Whoop\nSomething went wrong!</string>
+    <string name="empty_message_common">Whoop\nNo data found!</string>
+</resources>
