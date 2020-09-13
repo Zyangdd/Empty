@@ -13,7 +13,7 @@
         android:id="@+id/status_bar_sbv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="#DDD"
+        android:background="@drawable/bg_status_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

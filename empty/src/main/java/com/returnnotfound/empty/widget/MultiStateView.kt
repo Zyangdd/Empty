@@ -9,9 +9,9 @@ import com.returnnotfound.empty.R
 
 class MultiStateView : MotionLayout {
     private var state: State = State.CONTENT
-    private var loadingViewLayoutId: Int = R.layout.loading_common
-    private var emptyViewLayoutId = R.layout.empty_common
-    private var errorViewLayoutId = R.layout.error_common
+    private var loadingViewLayoutId: Int = R.layout.view_state_loading
+    private var emptyViewLayoutId = R.layout.view_state_empty
+    private var errorViewLayoutId = R.layout.view_state_error
 
     private lateinit var loadingView: View
     private lateinit var emptyView: View
