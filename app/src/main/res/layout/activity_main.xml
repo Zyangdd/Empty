@@ -9,16 +9,15 @@
     tools:context=".MainActivity"
     tools:ignore="MotionLayoutInvalidSceneFileReference">
 
-    <com.returnnotfound.empty.widget.StatusBarView
+    <com.zyangdd.empty.widget.StatusBarView
         android:id="@+id/status_bar_sbv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_status_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.returnnotfound.empty.widget.MultiStateView
+    <com.zyangdd.empty.widget.MultiStateView
         android:id="@+id/state_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -38,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </com.returnnotfound.empty.widget.MultiStateView>
+    </com.zyangdd.empty.widget.MultiStateView>
 
     <Button
         android:id="@+id/button"

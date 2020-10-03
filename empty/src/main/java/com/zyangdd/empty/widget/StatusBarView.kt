@@ -1,9 +1,9 @@
-package com.returnnotfound.empty.widget
+package com.zyangdd.empty.widget
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
-import com.returnnotfound.empty.extensions.getStatusBarHeight
+import com.zyangdd.empty.extensions.getStatusBarHeight
 
 class StatusBarView : AppCompatImageView {
     constructor(context: Context) : super(context)

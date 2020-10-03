@@ -1,6 +1,6 @@
-package com.returnnotfound.empty
+package com.zyangdd.empty
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**

@@ -1,4 +1,4 @@
-package com.returnnotfound.empty.extensions
+package com.zyangdd.empty.extensions
 
 import android.content.Context
 import android.util.DisplayMetrics
@@ -11,6 +11,16 @@ fun Context.getStatusBarHeight(): Int {
     }
     return result
 }
+
+fun Context.getNavigationBarHeight(): Int {
+    var result = 0
+    val resourceId: Int = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+    if (resourceId > 0) {
+        result = resources.getDimensionPixelSize(resourceId)
+    }
+    return result
+}
+
 
 fun Number.dpToPx(context: Context): Float {
     return this.toFloat() * (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)

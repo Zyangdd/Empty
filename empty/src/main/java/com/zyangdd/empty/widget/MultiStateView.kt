@@ -1,11 +1,11 @@
-package com.returnnotfound.empty.widget
+package com.zyangdd.empty.widget
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
-import com.returnnotfound.empty.R
+import com.zyangdd.empty.R
 
 class MultiStateView : MotionLayout {
     private var state: State = State.CONTENT
