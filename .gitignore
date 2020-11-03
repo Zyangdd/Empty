@@ -8,9 +8,12 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /.idea/vcs.xml
+/.idea/dictionaries
+/.idea/compiler.xml
+/.idea/gradle.xml
+/.idea/misc.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
-.idea/dictionaries
