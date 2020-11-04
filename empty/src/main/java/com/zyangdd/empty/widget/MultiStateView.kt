@@ -4,10 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import androidx.constraintlayout.motion.widget.MotionLayout
+import android.widget.FrameLayout
 import com.zyangdd.empty.R
 
-class MultiStateView : MotionLayout {
+class MultiStateView : FrameLayout {
     private var state: State = State.CONTENT
     private var loadingViewLayoutId: Int = R.layout.view_state_loading
     private var emptyViewLayoutId = R.layout.view_state_empty
@@ -143,15 +143,6 @@ class MultiStateView : MotionLayout {
         removeErrorView()
         errorView = LayoutInflater.from(context).inflate(layoutId, this, false)
         return errorView
-    }
-
-    override fun generateDefaultLayoutParams(): LayoutParams {
-        val result = LayoutParams(0, 0)
-        result.topToTop = LayoutParams.PARENT_ID
-        result.bottomToBottom = LayoutParams.PARENT_ID
-        result.startToStart = LayoutParams.PARENT_ID
-        result.endToEnd = LayoutParams.PARENT_ID
-        return result
     }
 
     private fun isLoadingViewAdded(): Boolean {
