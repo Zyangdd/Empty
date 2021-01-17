@@ -52,6 +52,10 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     android.variantFilter {
         variant ->
             if (variant.buildType.name == 'release' && (variant.getFlavors().get(0).name == 'dev')) {
