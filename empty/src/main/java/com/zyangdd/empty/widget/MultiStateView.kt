@@ -148,40 +148,22 @@ class MultiStateView : FrameLayout {
         return errorView
     }
 
-    private fun isLoadingViewAdded(): Boolean {
-        return isLoadingViewInitialized() && isViewAdded(loadingView)
-    }
+    private fun isLoadingViewAdded() = isLoadingViewInitialized() && isViewAdded(loadingView)
 
-    private fun isEmptyViewAdded(): Boolean {
-        return isEmptyViewInitialized() && isViewAdded(emptyView)
-    }
+    private fun isEmptyViewAdded() = isEmptyViewInitialized() && isViewAdded(emptyView)
 
-    private fun isErrorViewAdded(): Boolean {
-        return isErrorViewInitialized() && isViewAdded(errorView)
-    }
+    private fun isErrorViewAdded() = isErrorViewInitialized() && isViewAdded(errorView)
 
-    private fun isLoadingViewInitialized(): Boolean {
-        return this::loadingView.isInitialized
-    }
+    private fun isLoadingViewInitialized() = this::loadingView.isInitialized
 
-    private fun isEmptyViewInitialized(): Boolean {
-        return this::emptyView.isInitialized
-    }
+    private fun isEmptyViewInitialized() = this::emptyView.isInitialized
 
-    private fun isErrorViewInitialized(): Boolean {
-        return this::errorView.isInitialized
-    }
+    private fun isErrorViewInitialized() = this::errorView.isInitialized
 
-    private fun isViewAdded(view: View): Boolean {
-        return indexOfChild(view) >= 0
-    }
+    private fun isViewAdded(view: View) = indexOfChild(view) >= 0
 
     // State
-    enum class State {
-        CONTENT, LOADING, EMPTY, ERROR
-    }
+    enum class State { CONTENT, LOADING, EMPTY, ERROR }
 
-    private fun getStateValueByIndex(index: Int): State {
-        return State.values()[index]
-    }
+    private fun getStateValueByIndex(index: Int) = State.values()[index]
 }
