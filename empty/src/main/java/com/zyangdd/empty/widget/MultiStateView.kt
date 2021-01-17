@@ -45,6 +45,9 @@ class MultiStateView : FrameLayout {
         errorViewLayoutId = inputArr.getResourceId(
             R.styleable.MultiStateView_errorLayout, errorViewLayoutId
         )
+        internalSetLoadingView(loadingViewLayoutId)
+        internalSetEmptyView(emptyViewLayoutId)
+        internalSetErrorView(errorViewLayoutId)
         inputArr.recycle()
     }
 
