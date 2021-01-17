@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    tools:ignore="UnusedAttribute">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icon_iv"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_divider_v"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_setting"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/text_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/lato_regular"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/sub_text_tv"
+        app:layout_constraintEnd_toStartOf="@id/arrow_iv"
+        app:layout_constraintStart_toEndOf="@id/icon_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_goneMarginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/sub_text_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/lato_light"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#404040"
+        android:textSize="13sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/bottom_divider_v"
+        app:layout_constraintEnd_toStartOf="@id/arrow_iv"
+        app:layout_constraintStart_toEndOf="@id/icon_iv"
+        app:layout_constraintTop_toBottomOf="@id/text_tv" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/arrow_iv"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:tint="#80DDDDDD"
+        app:layout_constraintBottom_toTopOf="@id/bottom_divider_v"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_right"
+        tools:ignore="VectorDrawableCompat" />
+
+    <View
+        android:id="@+id/bottom_divider_v"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#80DDDDDD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/arrow_iv"
+        app:layout_constraintStart_toStartOf="@id/icon_iv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

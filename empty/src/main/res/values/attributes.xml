@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <attr name="subtext" format="string|reference" />
+    <attr name="subTextSize" format="dimension|reference" />
+    <attr name="subTextColor" format="color|reference" />
+    <attr name="subTextFontFamily" format="string" />
+    <attr name="subTextShow" format="boolean" />
+
     <declare-styleable name="MultiStateView">
         <attr name="state" format="enum">
             <enum name="content" value="0" />
@@ -11,4 +18,24 @@
         <attr name="emptyLayout" format="reference" />
         <attr name="errorLayout" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="OptionView">
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="android:fontFamily" />
+        <attr name="subtext" />
+        <attr name="subTextSize" />
+        <attr name="subTextColor" />
+        <attr name="subTextFontFamily" />
+        <attr name="subTextShow" />
+        <attr name="icon" />
+        <attr name="iconTint" />
+        <attr name="iconSize" />
+        <attr name="showArrow" format="boolean" />
+        <attr name="arrowTint" format="color|reference" />
+        <attr name="showBottomDivider" format="boolean" />
+        <attr name="fullDivider" format="boolean" />
+    </declare-styleable>
+
 </resources>
