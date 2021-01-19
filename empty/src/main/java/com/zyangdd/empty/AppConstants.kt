@@ -1,0 +1,14 @@
+package com.zyangdd.empty
+
+object AppConstants {
+    const val PER_PAGE = 20
+    const val TIME_OUT = 45L
+
+    const val ANDROID_UPDATE_APP_FORCE = "ANDROID_UPDATE_APP_FORCE"
+    const val ANDROID_UPDATE_APP_MESSAGE = "ANDROID_UPDATE_APP_MESSAGE"
+    const val ANDROID_VERSION_NAME = "ANDROID_VERSION_NAME"
+    const val ANDROID_VERSION_CODE = "ANDROID_VERSION_CODE"
+
+    const val RC_PERMISSION_STORAGE = 100
+    const val RC_PERMISSION_SYSTEM_SETTING = 101
+}

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_app_dialog"
+    tools:ignore="UnusedAttribute">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/end_gl"
+        app:layout_constraintStart_toStartOf="@id/start_gl"
+        app:layout_constraintTop_toTopOf="@id/top_gl"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/message_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/lato_regular"
+        android:gravity="center"
+        android:textColor="#404040"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/end_gl"
+        app:layout_constraintStart_toStartOf="@id/start_gl"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        tools:text="Message" />
+
+    <View
+        android:id="@+id/message_bottom_divider_v"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="#F0F0F0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/message_tv" />
+
+    <TextView
+        android:id="@+id/neutral_tv"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:stateListAnimator="@animator/anim_press_common"
+        android:textAllCaps="true"
+        android:textColor="#404040"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/negative_tv"
+        app:layout_constraintStart_toStartOf="@id/start_gl"
+        app:layout_constraintTop_toBottomOf="@id/message_tv"
+        tools:text="Cancel" />
+
+    <TextView
+        android:id="@+id/negative_tv"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:stateListAnimator="@animator/anim_press_common"
+        android:textAllCaps="true"
+        android:textColor="#404040"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/positive_tv"
+        app:layout_constraintStart_toEndOf="@id/neutral_tv"
+        app:layout_constraintTop_toBottomOf="@id/message_tv"
+        tools:text="No" />
+
+    <View
+        android:id="@+id/negative_divider_tv"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#F0F0F0"
+        app:layout_constraintBottom_toBottomOf="@id/negative_tv"
+        app:layout_constraintStart_toStartOf="@id/negative_tv"
+        app:layout_constraintTop_toTopOf="@id/negative_tv" />
+
+    <TextView
+        android:id="@+id/positive_tv"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:stateListAnimator="@animator/anim_press_common"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/end_gl"
+        app:layout_constraintStart_toEndOf="@id/negative_tv"
+        app:layout_constraintTop_toBottomOf="@id/message_tv"
+        tools:ignore="UnusedAttribute"
+        tools:text="Ok" />
+
+    <View
+        android:id="@+id/positive_divider_tv"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#F0F0F0"
+        app:layout_constraintBottom_toBottomOf="@id/positive_tv"
+        app:layout_constraintStart_toStartOf="@id/positive_tv"
+        app:layout_constraintTop_toTopOf="@id/positive_tv" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/positive_tv"
+        app:layout_goneMarginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,12 @@
 
     <string name="error_message_common">Whoop\nSomething went wrong!</string>
     <string name="empty_message_common">Whoop\nNo data found!</string>
+
+    <string name="rationale_permission">You need enable permission to continue</string>
+
+    <string name="default_empty" />
+    <string name="alert">Alert</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
 </resources>
