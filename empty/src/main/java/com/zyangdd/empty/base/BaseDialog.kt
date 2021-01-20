@@ -1,7 +1,6 @@
 package com.zyangdd.empty.base
 
 import android.content.Context
-import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -10,13 +9,7 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.appcompat.app.AlertDialog
 
-abstract class BaseDialog : AlertDialog {
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, themeResId: Int) : super(context, themeResId)
-    constructor(
-        context: Context, cancelable: Boolean, cancelListener: DialogInterface.OnCancelListener?
-    ) : super(context, cancelable, cancelListener)
+abstract class BaseDialog(context: Context) : AlertDialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initDialogWindow()
