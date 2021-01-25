@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -50,8 +49,8 @@ dependencies {
 
     api 'pub.devrel:easypermissions:3.0.0'
 
-    api "io.reactivex.rxjava3:rxjava:3.0.8"
-    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    api "io.reactivex.rxjava3:rxjava:3.0.9"
+    api 'io.reactivex.rxjava3:rxandroid:3.0.9'
 
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
 }
