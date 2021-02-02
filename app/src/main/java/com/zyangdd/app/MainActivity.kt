@@ -1,8 +1,8 @@
-package com.zyangdd.empty
+package com.zyangdd.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.zyangdd.empty.databinding.ActivityMainBinding
+import com.zyangdd.app.databinding.ActivityMainBinding
 import com.zyangdd.empty.widget.MultiStateView.State
 
 class MainActivity : AppCompatActivity() {

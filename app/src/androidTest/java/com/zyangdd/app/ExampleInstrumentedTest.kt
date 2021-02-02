@@ -1,4 +1,4 @@
-package com.zyangdd.empty
+package com.zyangdd.app
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

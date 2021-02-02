@@ -1,4 +1,4 @@
-package com.zyangdd.empty
+package com.zyangdd.app
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
