@@ -1,7 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="EmptyAppTheme">
-
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
 </resources>
