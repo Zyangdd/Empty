@@ -8,14 +8,14 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.view.Window
 import androidx.appcompat.app.AlertDialog
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseDialog(context: Context) : AlertDialog(context) {
-
+abstract class BaseDialog<B : ViewBinding>(context: Context) : AlertDialog(context) {
+    val binding: B by lazy { viewBinding() }
     override fun onCreate(savedInstanceState: Bundle?) {
         initDialogWindow()
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
-        initViewModel()
+        setContentView(binding.root)
         initView()
         observeData()
     }
@@ -34,9 +34,7 @@ abstract class BaseDialog(context: Context) : AlertDialog(context) {
         window?.setLayout(width(), height())
     }
 
-    abstract fun getLayoutId(): Int
-
-    abstract fun initViewModel()
+    abstract fun viewBinding(): B
 
     abstract fun initView()
 

@@ -7,11 +7,12 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.DialogFragment
+import androidx.viewbinding.ViewBinding
 import com.zyangdd.empty.base.extensions.setOnTouchHideKeyboard
-import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
-abstract class BaseDialogFragment : DialogFragment(), EasyPermissions.PermissionCallbacks {
+abstract class BaseDialogFragment<B : ViewBinding> : DialogFragment() {
+    val binding: B by lazy { viewBinding() }
 
     @SuppressLint("RestrictedApi")
     override fun setupDialog(dialog: Dialog, style: Int) {
@@ -35,7 +36,7 @@ abstract class BaseDialogFragment : DialogFragment(), EasyPermissions.Permission
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        val view = inflater.inflate(getLayoutId(), container, false)
+        val view = binding.root
         view.isClickable = true
         if (isTouchHideKeyboard()) {
             view.setOnTouchHideKeyboard(null)
@@ -46,7 +47,6 @@ abstract class BaseDialogFragment : DialogFragment(), EasyPermissions.Permission
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewModel()
         initView()
         observeData()
     }
@@ -56,26 +56,12 @@ abstract class BaseDialogFragment : DialogFragment(), EasyPermissions.Permission
         dialog?.window?.setLayout(width(), height())
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    override fun onRequestPermissionsResult(rc: Int, perms: Array<out String>, results: IntArray) {
+        super.onRequestPermissionsResult(rc, perms, results)
+        EasyPermissions.onRequestPermissionsResult(rc, perms, results, this)
     }
 
-    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {}
-
-    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            AppSettingsDialog.Builder(this).build().show()
-        }
-    }
-
-    abstract fun getLayoutId(): Int
-
-    abstract fun initViewModel()
+    abstract fun viewBinding(): B
 
     abstract fun initView()
 
