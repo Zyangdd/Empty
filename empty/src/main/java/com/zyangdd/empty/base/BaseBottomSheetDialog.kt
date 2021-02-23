@@ -22,7 +22,6 @@ abstract class BaseBottomSheetDialog(context: Context) : BottomSheetDialog(conte
         setContentView(view)
         initBottomSheetState(view)
 
-        initViewModel()
         initView()
         observeData()
     }
@@ -48,8 +47,6 @@ abstract class BaseBottomSheetDialog(context: Context) : BottomSheetDialog(conte
     }
 
     abstract fun getLayoutId(): Int
-
-    abstract fun initViewModel()
 
     abstract fun initView()
 

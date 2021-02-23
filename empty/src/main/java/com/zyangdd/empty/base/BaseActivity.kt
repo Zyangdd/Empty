@@ -22,7 +22,6 @@ abstract class BaseActivity : BaseLogActivity() {
             addRootFragment(getRootFragment())
         }
 
-        initViewModel()
         initView()
         observeData()
     }
@@ -73,8 +72,6 @@ abstract class BaseActivity : BaseLogActivity() {
     open fun getLayoutId() = ROOT_LAYOUT_ID
 
     fun getContainerId() = FRAGMENT_CONTAINER_ID
-
-    open fun initViewModel() {}
 
     open fun initView() {}
 

@@ -35,19 +35,17 @@ abstract class BaseDialogFragment<B : ViewBinding> : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-
         val view = binding.root
         view.isClickable = true
         if (isTouchHideKeyboard()) {
             view.setOnTouchHideKeyboard(null)
         }
-
+        initView()
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initView()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         observeData()
     }
 

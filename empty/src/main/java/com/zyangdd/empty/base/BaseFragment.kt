@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zyangdd.empty.base.extensions.setOnTouchHideKeyboard
-import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
 
@@ -28,9 +27,7 @@ abstract class BaseFragment : BaseLogFragment(), EasyPermissions.PermissionCallb
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewModel()
         initView()
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -38,26 +35,12 @@ abstract class BaseFragment : BaseLogFragment(), EasyPermissions.PermissionCallb
         observeData()
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
-    }
-
-    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {}
-
-    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            AppSettingsDialog.Builder(this).build().show()
-        }
+    override fun onRequestPermissionsResult(rc: Int, perms: Array<out String>, results: IntArray) {
+        super.onRequestPermissionsResult(rc, perms, results)
+        EasyPermissions.onRequestPermissionsResult(rc, perms, results, this)
     }
 
     abstract fun getLayoutId(): Int
-
-    open fun initViewModel() {}
 
     open fun initView() {}
 

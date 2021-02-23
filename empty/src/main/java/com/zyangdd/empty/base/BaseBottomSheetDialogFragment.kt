@@ -13,11 +13,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.zyangdd.empty.base.extensions.configBottomSheetBackground
 import com.zyangdd.empty.base.extensions.getHeightScreenPx
-import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
-abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment(),
-    EasyPermissions.PermissionCallbacks {
+abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     @SuppressLint("RestrictedApi")
     override fun setupDialog(dialog: Dialog, style: Int) {
         super.setupDialog(dialog, style)
@@ -43,7 +41,6 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewModel()
         initView()
         observeData()
     }
@@ -65,26 +62,12 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment(),
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
-    }
-
-    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {}
-
-    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            AppSettingsDialog.Builder(this).build().show()
-        }
+    override fun onRequestPermissionsResult(rc: Int, perms: Array<out String>, results: IntArray) {
+        super.onRequestPermissionsResult(rc, perms, results)
+        EasyPermissions.onRequestPermissionsResult(rc, perms, results, this)
     }
 
     abstract fun getLayoutId(): Int
-
-    abstract fun initViewModel()
 
     abstract fun initView()
 
