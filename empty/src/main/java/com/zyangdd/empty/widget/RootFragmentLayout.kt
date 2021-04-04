@@ -12,11 +12,4 @@ class RootFragmentLayout : FrameLayout {
         attrs,
         defStyle
     )
-
-//    override fun onApplyWindowInsets(insets: WindowInsets): WindowInsets {
-//        return WindowInsets.Builder(insets)
-//            .setSystemWindowInsets(
-//                Insets.of(0, 0, 0, insets.systemWindowInsetBottom)
-//            ).build()
-//    }
 }

@@ -17,10 +17,10 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_divider_v"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_setting"
+        app:srcCompat="@drawable/ic_option"
         tools:ignore="VectorDrawableCompat" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_goneMarginBottom="16dp" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/sub_text_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

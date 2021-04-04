@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <com.zyangdd.empty.widget.ProgressBar
+        <ProgressBar
             android:id="@+id/loading_progress"
             android:layout_width="48dp"
             android:layout_height="48dp" />
@@ -43,7 +43,7 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/lato_bold"
-            android:stateListAnimator="@animator/anim_press_common_"
+            android:stateListAnimator="@animator/anim_press_common1"
             android:text="@string/retry"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"

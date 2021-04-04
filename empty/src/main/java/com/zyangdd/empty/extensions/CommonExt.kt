@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 
+fun Any?.isNull() = this == null
+
 fun Activity.openPlayStore() {
     val action = Intent.ACTION_VIEW
     try {

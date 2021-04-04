@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     signingConfigs {
@@ -81,7 +82,13 @@ android {
 
 dependencies {
     implementation project(":empty")
-    testImplementation "junit:junit:4.13.1"
+
+    implementation "androidx.startup:startup-runtime:1.0.0"
+
+    implementation "com.google.dagger:hilt-android:2.33-beta"
+    kapt "com.google.dagger:hilt-compiler:2.33-beta"
+
+    testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.1.2"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
 }
