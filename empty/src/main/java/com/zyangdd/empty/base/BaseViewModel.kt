@@ -12,36 +12,28 @@ abstract class BaseViewModel : ViewModel() {
     private val disposables = CompositeDisposable()
 
     private val _showProgress = SingleLiveEvent<Boolean>()
-    val showProgress: LiveData<Boolean>
-        get() = _showProgress
+    val showProgress: LiveData<Boolean> = _showProgress
 
     private val _showMessage = SingleLiveEvent<String>()
-    val showMessage: LiveData<String>
-        get() = _showMessage
+    val showMessage: LiveData<String> = _showMessage
 
     private val _showMessageRes = SingleLiveEvent<Int>()
-    val showMessageRes: LiveData<Int>
-        get() = _showMessageRes
+    val showMessageRes: LiveData<Int> = _showMessageRes
 
     private val _showError = SingleLiveEvent<AppError>()
-    val showError: LiveData<AppError>
-        get() = _showError
+    val showError: LiveData<AppError> = _showError
 
     private val _showErrorRes = SingleLiveEvent<AppError>()
-    val showErrorRes: LiveData<AppError>
-        get() = _showErrorRes
+    val showErrorRes: LiveData<AppError> = _showErrorRes
 
     private val _refreshState = MutableLiveData<RefreshState>()
-    val refreshState: LiveData<RefreshState>
-        get() = _refreshState
+    val refreshState: LiveData<RefreshState> = _refreshState
 
     private val _loadMoreState = MutableLiveData<LoadMoreState>()
-    val loadMoreState: LiveData<LoadMoreState>
-        get() = _loadMoreState
+    val loadMoreState: LiveData<LoadMoreState> = _loadMoreState
 
     private val _viewState = MutableLiveData<ViewState>()
-    val viewState: LiveData<ViewState>
-        get() = _viewState
+    val viewState: LiveData<ViewState> = _viewState
 
     // Loading
     protected fun showProgress() {

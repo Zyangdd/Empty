@@ -9,10 +9,9 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.viewbinding.ViewBinding
 import com.zyangdd.empty.base.extensions.setOnTouchHideKeyboard
-import pub.devrel.easypermissions.EasyPermissions
 
 abstract class BaseDialogFragment<B : ViewBinding> : DialogFragment() {
-    val binding: B by lazy { viewBinding() }
+    protected lateinit var binding: B
 
     @SuppressLint("RestrictedApi")
     override fun setupDialog(dialog: Dialog, style: Int) {
@@ -35,17 +34,18 @@ abstract class BaseDialogFragment<B : ViewBinding> : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
+        binding = generateBinding(inflater, container)
         val view = binding.root
         view.isClickable = true
         if (isTouchHideKeyboard()) {
             view.setOnTouchHideKeyboard(null)
         }
-        initView()
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
         observeData()
     }
 
@@ -54,12 +54,7 @@ abstract class BaseDialogFragment<B : ViewBinding> : DialogFragment() {
         dialog?.window?.setLayout(width(), height())
     }
 
-    override fun onRequestPermissionsResult(rc: Int, perms: Array<out String>, results: IntArray) {
-        super.onRequestPermissionsResult(rc, perms, results)
-        EasyPermissions.onRequestPermissionsResult(rc, perms, results, this)
-    }
-
-    abstract fun viewBinding(): B
+    abstract fun generateBinding(inflater: LayoutInflater, container: ViewGroup?): B
 
     abstract fun initView()
 

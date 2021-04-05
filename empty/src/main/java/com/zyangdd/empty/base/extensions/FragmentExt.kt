@@ -9,14 +9,12 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.zyangdd.empty.AppConstants
-import com.zyangdd.empty.R
 import com.zyangdd.empty.base.BaseActivity
 import com.zyangdd.empty.base.BaseFragment
-import pub.devrel.easypermissions.EasyPermissions
 
-fun Fragment.getBaseActivity(): BaseActivity? = activity?.getBaseActivity()
+fun Fragment.getBaseActivity(): BaseActivity<*>? = activity?.getBaseActivity()
 
-fun Fragment.getBaseFragment(): BaseFragment = this as BaseFragment
+fun Fragment.getBaseFragment(): BaseFragment<*> = this as BaseFragment<*>
 
 fun Fragment.showKeyboard(view: View?) {
     view?.showKeyboard()
@@ -52,18 +50,6 @@ fun Fragment.openRequestWriteSettings() {
 
 @RequiresApi(Build.VERSION_CODES.M)
 fun Fragment.isCanWriteSystem() = Settings.System.canWrite(context)
-
-fun Fragment.requestStoragePermission(requestCode: Int) {
-    EasyPermissions.requestPermissions(
-        this,
-        getString(R.string.rationale_permission),
-        requestCode,
-        *storagePermissions()
-    )
-}
-
-fun Fragment.isStoragePermissionApproved() =
-    EasyPermissions.hasPermissions(requireContext(), *storagePermissions())
 
 private fun storagePermissions() = arrayOf(
     Manifest.permission.READ_EXTERNAL_STORAGE,

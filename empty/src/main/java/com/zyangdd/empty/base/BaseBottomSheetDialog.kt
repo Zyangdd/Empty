@@ -3,22 +3,24 @@ package com.zyangdd.empty.base
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.zyangdd.empty.base.extensions.configBottomSheetBackground
 import com.zyangdd.empty.base.extensions.getHeightScreenPx
 
-abstract class BaseBottomSheetDialog(context: Context) : BottomSheetDialog(context) {
+abstract class BaseBottomSheetDialog<B : ViewBinding>(context: Context) :
+    BottomSheetDialog(context) {
+    protected lateinit var binding: B
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initDialogWindow()
-
-        val view = LayoutInflater.from(context).inflate(getLayoutId(), null, false)
+        binding = generateBinding()
+        val view = binding.root
         setContentView(view)
         initBottomSheetState(view)
 
@@ -46,7 +48,7 @@ abstract class BaseBottomSheetDialog(context: Context) : BottomSheetDialog(conte
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
     }
 
-    abstract fun getLayoutId(): Int
+    abstract fun generateBinding(): B
 
     abstract fun initView()
 

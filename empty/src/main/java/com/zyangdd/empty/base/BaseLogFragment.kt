@@ -45,12 +45,6 @@ abstract class BaseLogFragment : Fragment() {
         log("onViewCreated_2")
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        log("onActivityCreated_1")
-        super.onActivityCreated(savedInstanceState)
-        log("onActivityCreated_2")
-    }
-
     override fun onStart() {
         log("onStart_1")
         super.onStart()

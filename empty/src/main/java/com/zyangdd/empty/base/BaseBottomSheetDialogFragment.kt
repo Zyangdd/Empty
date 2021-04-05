@@ -9,13 +9,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.zyangdd.empty.base.extensions.configBottomSheetBackground
 import com.zyangdd.empty.base.extensions.getHeightScreenPx
-import pub.devrel.easypermissions.EasyPermissions
+import com.zyangdd.empty.base.extensions.setOnTouchHideKeyboard
 
-abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
+abstract class BaseBottomSheetDialogFragment<B : ViewBinding> : BottomSheetDialogFragment() {
+    protected lateinit var binding: B
+
     @SuppressLint("RestrictedApi")
     override fun setupDialog(dialog: Dialog, style: Int) {
         super.setupDialog(dialog, style)
@@ -36,7 +39,12 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(getLayoutId(), container, false)
+        binding = generateBinding(inflater, container)
+        val view = binding.root
+        if (isTouchHideKeyboard()) {
+            view.setOnTouchHideKeyboard(null)
+        }
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,12 +70,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
     }
 
-    override fun onRequestPermissionsResult(rc: Int, perms: Array<out String>, results: IntArray) {
-        super.onRequestPermissionsResult(rc, perms, results)
-        EasyPermissions.onRequestPermissionsResult(rc, perms, results, this)
-    }
-
-    abstract fun getLayoutId(): Int
+    abstract fun generateBinding(inflater: LayoutInflater, container: ViewGroup?): B
 
     abstract fun initView()
 
@@ -78,4 +81,6 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     open fun isCustomHeight() = false
 
     open fun state() = BottomSheetBehavior.STATE_EXPANDED
+
+    open fun isTouchHideKeyboard() = true
 }

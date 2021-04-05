@@ -3,36 +3,22 @@ package com.zyangdd.empty.base
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.Toast
-import com.zyangdd.empty.base.extensions.addRootFragment
-import com.zyangdd.empty.base.extensions.getTopFragment
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity : BaseLogActivity() {
-    private var currentBackStackEntryCount = 0
+abstract class BaseActivity<B : ViewBinding> : BaseLogActivity() {
+    protected lateinit var binding: B
+
     private var toast: Toast? = null
     private var progressDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        currentBackStackEntryCount = supportFragmentManager.backStackEntryCount
 
-        setContentView(getLayoutId())
-        registerOnBackStackChange()
-
-        if (savedInstanceState == null) {
-            addRootFragment(getRootFragment())
-        }
+        binding = generateBinding()
+        setContentView(binding.root)
 
         initView()
         observeData()
-    }
-
-    override fun onBackPressed() {
-        val topFragment = supportFragmentManager.getTopFragment()
-        if (topFragment is BaseFragment) {
-            topFragment.onBackPressed()
-        } else {
-            super.onBackPressed()
-        }
     }
 
     fun showProgress() {
@@ -53,27 +39,9 @@ abstract class BaseActivity : BaseLogActivity() {
         toast?.show()
     }
 
-    // More method
-    private fun registerOnBackStackChange() {
-        supportFragmentManager.addOnBackStackChangedListener {
-            val newCurrentBackStackEntryCount = supportFragmentManager.backStackEntryCount
-            if (newCurrentBackStackEntryCount < currentBackStackEntryCount) {
-                val topFragment = supportFragmentManager.getTopFragment()
-                if (topFragment is BaseFragment) {
-                    topFragment.onBackResume()
-                }
-            }
-            currentBackStackEntryCount = newCurrentBackStackEntryCount
-        }
-    }
+    abstract fun generateBinding(): B
 
-    abstract fun getRootFragment(): BaseFragment
+    abstract fun initView()
 
-    open fun getLayoutId() = ROOT_LAYOUT_ID
-
-    fun getContainerId() = FRAGMENT_CONTAINER_ID
-
-    open fun initView() {}
-
-    open fun observeData() {}
+    abstract fun observeData()
 }

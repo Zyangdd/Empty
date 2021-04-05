@@ -1,18 +1,14 @@
 package com.zyangdd.app
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.zyangdd.app.databinding.ActivityMainBinding
+import com.zyangdd.empty.base.BaseActivity
 import com.zyangdd.empty.base.ProgressDialog
 import com.zyangdd.empty.widget.MultiStateView.State
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+    override fun generateBinding() = ActivityMainBinding.inflate(layoutInflater)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun initView() {
         binding.button.setOnClickListener {
             ProgressDialog(this).show()
 //            AppDialog(this).apply {
@@ -28,5 +24,9 @@ class MainActivity : AppCompatActivity() {
         binding.button2.setOnClickListener { binding.stateView.update(State.LOADING) }
         binding.button3.setOnClickListener { binding.stateView.update(State.EMPTY) }
         binding.button4.setOnClickListener { binding.stateView.update(State.ERROR) }
+    }
+
+    override fun observeData() {
+
     }
 }
