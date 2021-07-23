@@ -12,6 +12,9 @@
 /.idea/compiler.xml
 /.idea/gradle.xml
 /.idea/misc.xml
+/.idea/Project.xml
+/.idea/runConfigurations.xml
+/.idea
 .DS_Store
 /build
 /captures
